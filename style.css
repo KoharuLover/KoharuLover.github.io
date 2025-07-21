@@ -30,10 +30,10 @@ nav ul li{display:inline;}
     align-items: center;
 }
 
-h1{background:cyan;}
+h2{background:cyan; padding: 2rem;}
 @media (max-width:800px){
     #qrCodeImg{display:none;} /*hide QR
     code when its mobile size */
-    h1{background: lightgreen;}
-    h1::after{content:"(mobile)";}
+    h2{background: lightgreen;}
+    h2::after{content:"(mobile)";}
 }
