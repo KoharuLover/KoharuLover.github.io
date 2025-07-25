@@ -3,18 +3,103 @@
     src: url('Fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
 }
   
-body {
+html, body {
     font-family: 'Quicksand', Arial, sans-serif;
+    font-size: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    background-image: url(Images/hyacineIMG.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    color:azure; 
+}
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5rem;
+    background: #26ae8a;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+    padding: 0 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 0.3125rem #ffffff;
 }
 
-.page{width:80vw;height:80vh;border:1px solid red}
-nav ul li{display:inline;}
+nav {
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    width: 100%;
+    font-size: 1.5rem;
+    height: 3rem;
+    text-align: center;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;  
+    background: linear-gradient(to right, #078a4d, #23c1aa, #3caf9c);
+    padding: 0 2rem;                   
+    z-index: 1000;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+nav ul li{
+    flex: 2;
+}
+main {
+    position: absolute;
+    top: 8rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;  
+    color:#ffffff;
+    text-shadow: 0 0 0.1rem #ffffff;
+    border:1px solid rgb(255, 0, 119);
+}
+.page{border:1px solid red; padding: 0 5rem;}
 #page1{background:green}
 #page2{background:red}
 #page3{background:blue}
-
 /*CSS for responsive menu*/
 #hamIcon{display:none;}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #434343, #2b2b2b, #171717);
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-shadow: 0 0 0.3125rem #ffffff;
+    padding: 0 2rem;
+    z-index: 1000;
+}
 @media screen and (max-width:800px){
     /*make a menu items vertical*/
     nav ul li{display:block;}
@@ -39,10 +124,9 @@ nav ul li{display:inline;}
     align-items: center;
 }
 
-h2{background:cyan; padding: 2rem;}
+/* h2{background:cyan; padding: 2rem;}
 @media (max-width:800px){
-    #qrCodeImg{display:none;} /*hide QR
-    code when its mobile size */
+    #qrCodeImg{display:none;} 
     h2{background: lightgreen;}
     h2::after{content:"(mobile)";}
-}
+} */
