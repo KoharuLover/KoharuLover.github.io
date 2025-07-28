@@ -10,11 +10,12 @@ html, body {
     display: flex;
     flex-direction: column;
 
-    background-image: url(Images/hyacineIMG.png);
+    background-color: #a8edea;
+    /* background-image: url(Images/hyacineIMG.png);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    background-size: cover;
+    background-size: cover; */
     color:azure; 
 }
 header {
