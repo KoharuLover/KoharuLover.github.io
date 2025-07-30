@@ -1,4 +1,5 @@
 //target all elements to save to constants
+const page0btn=document.querySelector("#page0btn");
 const page1btn=document.querySelector("#page1btn");
 const page2btn=document.querySelector("#page2btn");
 const page3btn=document.querySelector("#page3btn");
@@ -22,8 +23,12 @@ hideall();
     let onepage=document.querySelector("#page"+pgno);
     onepage.style.display="block"; //show the page
 }
+
 /*Listen for clicks on the buttons, assign anonymous
 eventhandler functions to call show function*/
+page0btn.addEventListener("click", function () {
+    show(0);
+})
 page1btn.addEventListener("click", function () {
     show(1);
 });
