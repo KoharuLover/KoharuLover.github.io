@@ -18,7 +18,7 @@ function hideall(){ //function to hide all pages
     }
 }
 function show(pgno){ //function to show selected page no
-hideall();
+    hideall();
     //select the page based on the parameter passed in
     let onepage=document.querySelector("#page"+pgno);
     onepage.style.display="block"; //show the page
@@ -38,7 +38,7 @@ page2btn.addEventListener("click", function () {
 page3btn.addEventListener("click", function () {
     show(3);
 });
-hideall();
+show(0);
 
 function toggleMenus(){ /*open and close menu*/
     //if menuItemsList dont have the class "menuShow", add it, else remove it
