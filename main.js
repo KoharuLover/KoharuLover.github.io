@@ -52,7 +52,41 @@ function toggleMenus(){ /*open and close menu*/
     }
 }
 
+const content0btn = document.querySelector("#content0btn");
+const allsub = document.querySelectorAll(".sub");
 
+// Make sure all .sub elements are hidden initially
+allsub.forEach(sub => {
+  sub.classList.remove("show");
+});
+
+content0btn.addEventListener("click", () => {
+  // Add the 'show' class to each .sub to trigger animation
+  allsub.forEach((sub, index) => {
+    setTimeout(() => {
+      sub.classList.add("show");
+    }, index * 1000); // Delay each one slightly for a staggered effect
+  });
+
+  content0btn.style.display = "none";
+});
+// function hideAllSub() {
+//     for (let onesub of allsub) {
+//         onesub.style.display = "none";
+//     }
+// }
+// function showAllSub() {
+//     for (let onesub of allsub) {
+//         onesub.style.display = "block";
+//     }
+// }
+// // Hide all subcontent
+// hideAllSub();
+// // Show all subcontent
+// content0btn.addEventListener("click", function () {
+//     showAllSub();
+//     content0btn.style.display = "none"; // Optional: hide the button
+// });
 
 
 // Ball

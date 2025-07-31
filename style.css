@@ -95,8 +95,8 @@ button:active {
 
 main {
   flex: 1 0 auto;
-  padding: 2rem 5vw;
-  background-color: #f7fff7;
+  padding: 2rem 4rem;
+  background-color: #fffcf7;
   color: #003049;
   line-height: 1.6;
 }
@@ -106,8 +106,35 @@ main {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
   border-radius: 12px;
+}
+
+.content {
+  padding: 2rem 1rem;
+  border-radius: 12px;
   background-color: #ffffff;
+  margin-bottom: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#content0btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  background: #ffffff;
+  margin-bottom: 2rem;
+  max-width: 2000px;
+}
+
+.sub {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.sub.show {
+  max-height: 500px; /* big enough to fit content */
+  opacity: 1;
 }
 
 footer {
