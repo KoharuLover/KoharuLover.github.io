@@ -35,12 +35,6 @@ function show(pgno){ //function to show selected page no
     onenavbtn.classList.add("selected");
     
 }
-// function clearSelected() {
-//     page0btn.classList.remove("selected");
-//     page1btn.classList.remove("selected");
-//     page2btn.classList.remove("selected");
-//     page3btn.classList.remove("selected");
-// }
 
 /*Listen for clicks on the buttons, assign anonymous
 eventhandler functions to call show function*/
@@ -97,7 +91,73 @@ c03btn.addEventListener("click", function() {
     c03btn.style.display = "none";
 });
 
+var gameArea = document.getElementById("minigame");
+var scoreDisplay = document.getElementById("score");
+var score = 0;
 
+var positiveThoughts = [
+  "You're strong!",
+  "Breathe",
+  "You got this!",
+  "Take it slow",
+  "Be kind to yourself",
+  "One step at a time"
+];
+
+var distractions = [
+  "Too much work!",
+  "Why bother?",
+  "Stress!!"
+];
+
+function createBubble() {
+  var bubble = document.createElement("div");
+  bubble.className = "bubble";
+
+  var isPositive = Math.random() < 0.6;
+  var text = isPositive
+    ? positiveThoughts[Math.floor(Math.random() * positiveThoughts.length)]
+    : distractions[Math.floor(Math.random() * distractions.length)];
+
+  bubble.textContent = text;
+
+  // Random horizontal position
+  var startX = Math.random() * (gameArea.clientWidth - 100);
+  bubble.style.left = startX + "px";
+
+  // Start at the bottom
+  var posY = gameArea.clientHeight;
+  bubble.style.top = posY + "px";
+
+  // Click behavior
+  bubble.onclick = function () {
+    if (isPositive) {
+      score += 1;
+      scoreDisplay.textContent = "Score: " + score;
+    }
+    bubble.remove();
+  };
+
+  gameArea.appendChild(bubble);
+
+  // Animate upward
+  function float() {
+    posY -= 1 + Math.random(); // random speed
+    if (posY < -100) {
+      bubble.remove(); // remove when off-screen
+    } else {
+      bubble.style.top = posY + "px";
+      requestAnimationFrame(float);
+    }
+  }
+
+  requestAnimationFrame(float);
+}
+
+// Start the game
+if (gameArea) {
+  setInterval(createBubble, 1000);
+}
 
 // const content0btn = document.querySelector("#content0btn");
 // const allsub = document.querySelectorAll(".sub");
@@ -138,121 +198,7 @@ c03btn.addEventListener("click", function() {
 
 // Ball
 
-/*find references to all the buttons and ball */
-const leftBtn = document.querySelector("#leftBtn");
-const rightBtn = document.querySelector("#rightBtn");
-const upBtn = document.querySelector("#upBtn");
-const downBtn = document.querySelector("#downBtn");
-const resetBtn = document.querySelector("#resetBtn");
-const ball = document.querySelector("#ball");
-var ballX = ballY = 0; //assign initial position of ball
 
-function ResetPos() {
-    ballX=ballY=0; //reset to zero
-    ball.style.left = ballX+"px"; //set left property to ball x variable
-    ball.style.top = ballY+"px"; //set top property to ball x variable
-    ball.innerText = ballX + "," + ballY; //update ball text to show coordinate
-}
-function MovePos(leftInc, topInc) {
-    ballX =ballX+ leftInc;
-    ballY =ballY+ topInc;
-    ball.style.left = ballX+"px"; //set left css property to ball x variable
-    ball.style.top = ballY+"px"; //set top css property to ball y variable
-    ball.innerText = ballX + "," + ballY; //update ball text to show coordinate
-}
-
-function MoveLeft(){
-    ballX =ballX-10; //decrement by 10
-    ballY =ballY+0; //no change
-    ball.style.left = ballX+"px"; //set left css property to ball x variable
-    ball.style.top = ballY+"px"; //set top css property to ball y variable
-    ball.innerText = ballX + "," + ballY; //update ball text to show coordinate
-}
-
-//eventlistener to activate MoveLeft (named callback function)
-leftBtn.addEventListener("click", MoveLeft); //no brackets after MoveLeft
-//eventListener to anonymous callback function (other way)
-rightBtn.addEventListener("click", function () {
-    MovePos(10, 0);
-});
-upBtn.addEventListener("click", function () {
-    MovePos(0, -10);
-});
-downBtn.addEventListener("click", function () {
-    MovePos(0, 10);
-});
-resetBtn.addEventListener("click", ResetPos);
-
-document.addEventListener('keydown', function (kbEvt) {
-//kbEvt: an event object passed to callback function
-console.log(kbEvt); //see what is returned
-if (kbEvt.code === "ArrowRight"){
-    MovePos(10,0);
-}
-if (kbEvt.code === "ArrowLeft"){
-    MoveLeft();
-}
-if (kbEvt.code === "ArrowDown"){
-    MovePos(0, 10);
-}
-if (kbEvt.code === "ArrowUp"){
-    MovePos(0, -10);
-}
-//Better option: use switch case instead
-});
-
-
-
-//define more variables and constants
-var velX,velY;
-const minLeft=10, minTop=0;
-const maxTop=480, maxLeft=1270;
-//function to pick random number from a min-max range
-function RandomRange(min,max){
-    return Math.round(Math.random()*(max-min)+min);
-}
-
-//callback function for setInterval
-function MoveIt(){
-MovePos(velX,velY); //move at random velocity picked earlier
-}
-
-//Modify StartAutoMove function
-function StartAutoMove(){
-    velX=RandomRange(1,2);
-    velY=RandomRange(1,2);
-    //setInterval(MoveIt,100); don't use this anymore
-    setInterval(MovePosWifCollision,10); //use this instead
-}
-
-
-
-/* Move Pos function with collision check and reaction*/
-function MovePosWifCollision(){
-    ballX += velX;
-    ballY += velY;
-    MovePos(velX,velY);
-    /*check if reach min/max left/top and flip velocity*/
-    if(ballX>maxLeft){
-        velX=-velX; //reverse the X velocity
-        ballX=maxLeft; //snap ballX to maxLeft
-    }
-    if(ballY>maxTop){
-        velY=-velY;
-        ballY=maxTop; //snap ballY to maxTop
-    }
-    if(ballX<minLeft){
-        velX=-velX;
-        ballX=minLeft;
-    }
-    if(ballY<minTop){
-        velY=-velY;
-        ballY=minTop;
-    }
-    UpdateBallStyle();
-}
-
-StartAutoMove(); //invoke the function to activate automove
 
 
 

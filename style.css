@@ -166,26 +166,51 @@ main {
   width: auto;
 }
 
-
-
-/* #content0btn {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 1rem;
-  background: #ffffff;
-  margin-bottom: 2rem;
-  max-width: 2000px;
-}
-.sub {
-  max-height: 0;
+#minigame {
+  position: relative;
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
+  background: linear-gradient(to top, #fce3ec, #cfd9ff);
+  padding: 1rem;
+  box-sizing: border-box;
 }
-.sub.show {
-  max-height: 500px; 
-  opacity: 1;
-} */
+
+#score {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  z-index: 100;
+}
+
+.bubble {
+  position: absolute;
+  padding: 1rem;
+  height: 10vw;
+  width: 10vw;
+  text-align: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #a6c1ee;
+  cursor: pointer;
+  font-weight: bold;
+  color: #003049;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;               
+  align-items: center;         
+  justify-content: center;     
+  user-select: none;
+  transition: transform 0.1s, opacity 0.2s;
+  font-size: clamp(0.6rem, 2vw, 1.2rem); /* basically rwd, this helps to scale my font with a min and max size and a preferred size in just 1 line */
+}
+
+.bubble:active {
+  transform: scale(0.95);
+}
 
 footer {
   padding: 1rem;
@@ -236,20 +261,29 @@ h1{
     display: none;
   }
 }
-#ball {
-    background: cyan;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 /* h2{background:cyan; padding: 2rem;}
 @media (max-width:800px){
     #qrCodeImg{display:none;} 
     h2{background: lightgreen;}
     h2::after{content:"(mobile)";}
+} */
+
+/* #content0btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  background: #ffffff;
+  margin-bottom: 2rem;
+  max-width: 2000px;
+}
+.sub {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+.sub.show {
+  max-height: 500px; 
+  opacity: 1;
 } */
