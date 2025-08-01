@@ -176,6 +176,38 @@ main {
   box-sizing: border-box;
 }
 
+#gameUI{
+  display:none;
+}
+
+/* Start Button Overlay */
+#startOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(234, 244, 255, 0.9);
+  z-index: 200;
+}
+
+/* Start Button */
+#startBtn {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #003049;
+  background-color: #a6c1ee;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#startBtn:hover {
+  background-color: #90b4f0;
+}
+
 #score {
   position: absolute;
   top: 1rem;
@@ -207,6 +239,7 @@ main {
   transition: transform 0.1s, opacity 0.2s;
   font-size: clamp(0.6rem, 2vw, 1.2rem); /* basically rwd, this helps to scale my font with a min and max size and a preferred size in just 1 line */
 }
+
 
 .bubble:active {
   transform: scale(0.95);

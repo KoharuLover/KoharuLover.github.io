@@ -34,6 +34,7 @@ function show(pgno){ //function to show selected page no
     let onenavbtn=document.querySelector("#page"+pgno+"btn");
     onenavbtn.classList.add("selected");
     
+    stopGame();
 }
 
 /*Listen for clicks on the buttons, assign anonymous
@@ -63,6 +64,7 @@ function toggleMenus(){ /*open and close menu*/
         hambtn.innerHTML="Open Menu"; //change button text open menu
     }
 }
+
 
 
 //content 0 buttons
@@ -95,6 +97,14 @@ var gameArea = document.getElementById("minigame");
 var scoreDisplay = document.getElementById("score");
 var score = 0;
 
+var startBtn = document.getElementById("startBtn");
+var gameUI = document.getElementById("gameUI");
+var startOverlay = document.getElementById("startOverlay");
+
+var bubbleInterval = null;
+
+var gameRunning = false;
+
 var positiveThoughts = [
   "You're strong!",
   "Breathe",
@@ -116,8 +126,8 @@ function createBubble() {
 
   var isPositive = Math.random() < 0.6;
   var text = isPositive
-    ? positiveThoughts[Math.floor(Math.random() * positiveThoughts.length)]
-    : distractions[Math.floor(Math.random() * distractions.length)];
+    ? positiveThoughts[Math.floor(Math.random() *(positiveThoughts.length))]
+    : distractions[Math.floor(Math.random() * (distractions.length))];
 
   bubble.textContent = text;
 
@@ -133,8 +143,10 @@ function createBubble() {
   bubble.onclick = function () {
     if (isPositive) {
       score += 1;
-      scoreDisplay.textContent = "Score: " + score;
+    } else {
+      score -= 1;
     }
+    scoreDisplay.textContent = "Score: " + score;
     bubble.remove();
   };
 
@@ -155,9 +167,44 @@ function createBubble() {
 }
 
 // Start the game
-if (gameArea) {
-  setInterval(createBubble, 1000);
+startBtn.addEventListener("click", function() {
+    startGame();
+})
+
+function startGame() {
+    if(!gameRunning)
+    {
+        startOverlay.style.display="none";
+        gameUI.style.display="block";
+        score = 0;
+        scoreDisplay.textContent = "Score: 0";
+        bubbleInterval = setInterval(createBubble, 1000);
+        gameRunning = true;
+    }
 }
+
+
+function stopGame() {
+    if(gameRunning)
+    {
+        clearInterval(bubbleInterval);
+        bubbleInterval = null;
+
+        var bubbles = document.querySelectorAll(".bubble");
+        bubbles.forEach(function (bubble) {
+            bubble.remove();
+        });
+
+        // Reset score
+        score = 0;
+        scoreDisplay.textContent = "Score: 0";
+
+        startOverlay.style.display="flex";
+        gameUI.style.display="none";
+        gameRunning = false;
+    }
+}
+
 
 // const content0btn = document.querySelector("#content0btn");
 // const allsub = document.querySelectorAll(".sub");
