@@ -5,6 +5,7 @@ const page2btn=document.querySelector("#page2btn");
 const page3btn=document.querySelector("#page3btn");
 
 var allpages=document.querySelectorAll(".page");
+var allnavbtn=document.querySelectorAll(".navbtn");
 
 const menuItemsList = document.querySelector("ul");
 const hambtn = document.querySelector("#hamIcon");
@@ -17,12 +18,29 @@ function hideall(){ //function to hide all pages
         onepage.style.display="none"; //hide it
     }
 }
+function clearall(){
+    for(let onenavbtn of allnavbtn){
+        onenavbtn.classList.remove("selected");
+    }
+}
 function show(pgno){ //function to show selected page no
     hideall();
+    clearall();
+
     //select the page based on the parameter passed in
     let onepage=document.querySelector("#page"+pgno);
     onepage.style.display="block"; //show the page
+
+    let onenavbtn=document.querySelector("#page"+pgno+"btn");
+    onenavbtn.classList.add("selected");
+    
 }
+// function clearSelected() {
+//     page0btn.classList.remove("selected");
+//     page1btn.classList.remove("selected");
+//     page2btn.classList.remove("selected");
+//     page3btn.classList.remove("selected");
+// }
 
 /*Listen for clicks on the buttons, assign anonymous
 eventhandler functions to call show function*/
@@ -52,24 +70,53 @@ function toggleMenus(){ /*open and close menu*/
     }
 }
 
-const content0btn = document.querySelector("#content0btn");
-const allsub = document.querySelectorAll(".sub");
 
-// Make sure all .sub elements are hidden initially
-allsub.forEach(sub => {
-  sub.classList.remove("show");
+//content 0 buttons
+const c01btn = document.querySelector("#c01btn");
+const c02btn = document.querySelector("#c02btn");
+const c03btn = document.querySelector("#c03btn");
+
+//contents 0-1, 0-2 and 0-3
+const c01 = document.querySelector("#c01");
+const c02 = document.querySelector("#c02");
+const c03 = document.querySelector("#c03");
+
+// Add event listeners to show sections when their buttons are clicked
+c01btn.addEventListener("click", function() {
+    c01.classList.add("show");
+    c01btn.style.display = "none"; // Optionally hide button after click
 });
 
-content0btn.addEventListener("click", () => {
-  // Add the 'show' class to each .sub to trigger animation
-  allsub.forEach((sub, index) => {
-    setTimeout(() => {
-      sub.classList.add("show");
-    }, index * 1000); // Delay each one slightly for a staggered effect
-  });
-
-  content0btn.style.display = "none";
+c02btn.addEventListener("click", function() {
+    c02.classList.add("show");
+    c02btn.style.display = "none";
 });
+
+c03btn.addEventListener("click", function() {
+    c03.classList.add("show");
+    c03btn.style.display = "none";
+});
+
+
+
+// const content0btn = document.querySelector("#content0btn");
+// const allsub = document.querySelectorAll(".sub");
+//
+// // Make sure all .sub elements are hidden initially
+// allsub.forEach(function(sub) {
+//   sub.classList.remove("show");
+// });
+//
+// content0btn.addEventListener("click", function() {
+//   // Add the 'show' class to each .sub to trigger animation
+//   allsub.forEach(function(sub, index) {
+//     setTimeout(function() {sub.classList.add("show");}, index * 1000); // Delay each one slightly for a staggered effect
+//   });
+//
+//   content0btn.style.display = "none";
+// });
+
+
 // function hideAllSub() {
 //     for (let onesub of allsub) {
 //         onesub.style.display = "none";

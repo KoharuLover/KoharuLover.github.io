@@ -17,24 +17,25 @@
     <nav>
       <button id="hamIcon">Open Menu</button>
         <ul>
-            <li><button id="page0btn">Home</button></li>
-            <li><button id="page1btn">Understanding Stress</button></li>
-            <li><button id="page2btn">Daily Strategies</button></li>
-            <li><button id="page3btn">Social Support</button></li>
+            <li><button class="navbtn" id="page0btn">Home</button></li>
+            <li><button class="navbtn" id="page1btn">Understanding Stress</button></li>
+            <li><button class="navbtn" id="page2btn">Daily Strategies</button></li>
+            <li><button class="navbtn" id="page3btn">Social Support</button></li>
         </ul>
     </nav>
 
    <main id="pagecontainer">
         <!-- Page 0 -->
         <section class="page" id="page0">
-            <div class="content" id="0-1">
+            <div class="content">
                 <h2>Welcome to Your Mental Resilience Guide</h2>
                 <p>
                     Life can be tough — but so are you. This site is here to help you develop the mental tools needed to stay strong through challenges like school stress, work deadlines, social pressure, and personal struggles.
                 </p>
             </div>
-            <button id="content0btn">Start Guide</button>
-            <div class="sub content" id="0-2">
+
+            <button id="c01btn">What You'll Learn</button>
+            <div class="content" id="c01">
                 <h3>What You'll Learn</h3>
                 <ul>
                     <li>What stress does to your mind and body</li>
@@ -42,13 +43,17 @@
                     <li>How to seek support and help others in need</li>
                 </ul>
             </div>
-            <div class="sub content" id="0-3">
+
+            <button id="c02btn">Why Mental Resilience Matters</button>
+            <div class="content" id="c02">
                 <h3>Why Mental Resilience Matters</h3>
                 <p>
                     Mental resilience helps you bounce back after setbacks. It keeps you calm under pressure, boosts your confidence, and makes you more adaptable in a fast-changing world.
                 </p>
             </div>
-            <div class="sub content" id="0-4">
+
+            <button id="c03btn">Is This for Me?</button>
+            <div class="content" id="c03">
                 <h3>Is This for Me?</h3>
                 <p>
                     If you've ever felt overwhelmed, anxious, or unsure of how to deal with stress — this guide is for you. You're not alone, and building resilience is something everyone can do.
@@ -58,100 +63,140 @@
         </section>
 
         <!-- Page 1 -->
-        <section class="page" id="page1">
-            <h2>Understanding Stress and How It Affects the Brain</h2>
+        <section class="page" id="page1"> 
+            <div class="title content">
+                <h2>Understanding Stress and How It Affects the Brain</h2>
+                <img width=100px src="Images/mental.png">
+            </div>
+            
+            <div class="content">
+                <h3>What is Stress?</h3>
+                <p>
+                    Stress is your body's way of reacting to any kind of demand or challenge. It activates your “fight or flight” response, which can help in emergencies — but when it's constant, it can wear you down.
+                </p>
+            </div>
+            
+            <div class="content">
+                <h3>How Stress Affects the Brain</h3>
+                <p>
+                    - The <strong>amygdala</strong> becomes more sensitive, making you feel fear and anxiety faster.<br />
+                    - The <strong>prefrontal cortex</strong> (which helps with decision-making and planning) weakens.<br />
+                    - The <strong>hippocampus</strong> (linked to memory) can shrink over time.
+                </p>
+            </div>
 
-            <h3>What is Stress?</h3>
-            <p>
-                Stress is your body's way of reacting to any kind of demand or challenge. It activates your “fight or flight” response, which can help in emergencies — but when it's constant, it can wear you down.
-            </p>
+            <div class="content">
+                <h3>Common Symptoms of Stress</h3>
+                <ul>
+                    <li>Headaches, stomachaches, or fatigue</li>
+                    <li>Difficulty sleeping or concentrating</li>
+                    <li>Feeling irritable, sad, or nervous</li>
+                </ul>
+            </div>
 
-            <h3>How Stress Affects the Brain</h3>
-            <p>
-                - The <strong>amygdala</strong> becomes more sensitive, making you feel fear and anxiety faster.<br />
-                - The <strong>prefrontal cortex</strong> (which helps with decision-making and planning) weakens.<br />
-                - The <strong>hippocampus</strong> (linked to memory) can shrink over time.
-            </p>
-
-            <h3>Common Symptoms of Stress</h3>
-            <ul>
-                <li>Headaches, stomachaches, or fatigue</li>
-                <li>Difficulty sleeping or concentrating</li>
-                <li>Feeling irritable, sad, or nervous</li>
-            </ul>
-
-            <h3>Why Early Awareness Helps</h3>
-            <p>
-                The earlier you notice stress building up, the easier it is to manage it. Keeping a stress journal, doing regular check-ins with yourself, or simply pausing during the day to breathe can make a difference.
-            </p>
+            <div class="content">
+                <h3>Why Early Awareness Helps</h3>
+                <p>
+                    The earlier you notice stress building up, the easier it is to manage it. Keeping a stress journal, doing regular check-ins with yourself, or simply pausing during the day to breathe can make a difference.
+                </p>
+            </div>
         </section>
 
         <!-- Page 2 -->
         <section class="page" id="page2">
-            <h2>Practical Strategies to Strengthen Mental Resilience</h2>
 
-            <h3>1. Healthy Habits</h3>
-            <ul>
-                <li><strong>Sleep:</strong> Get 7-9 hours to restore brain function.</li>
-                <li><strong>Exercise:</strong> Even a walk or stretch can boost mood.</li>
-                <li><strong>Nutrition:</strong> Choose whole foods like nuts, fruits, and greens to nourish your mind.</li>
-            </ul>
-
-            <h3>2. Mindfulness & Breathing</h3>
-            <p>
-                Practicing mindfulness helps you stay grounded in the present. Try "box breathing": Inhale for 4 seconds, hold for 4, exhale for 4, hold again for 4.
-            </p>
-
-            <h3>3. Journaling & Reframing Thoughts</h3>
-            <p>
-                Journaling helps you understand your emotions better. When negative thoughts arise, ask yourself: “Is this fact or fear?” Try replacing harsh self-talk with more supportive, realistic perspectives.
-            </p>
-
-            <h3>4. Limit Digital Overload</h3>
-            <ul>
-                <li>Take regular breaks from social media.</li>
-                <li>Use screen time tracking apps to manage your habits.</li>
-                <li>Turn off notifications when studying or relaxing.</li>
-            </ul>
-
-            <h3>5. Build a Resilient Morning Routine</h3>
-            <p>
-                Starting your day with calm, intentional habits builds momentum. Try journaling, drinking water, or stretching — even for 5 minutes.
-            </p>
+            <div class="title content">
+                <h2>Practical Strategies to Strengthen Mental Resilience</h2>
+                <img width=100px src="Images/mental.png">
+            </div>
+            
+            <div class="content">
+                <h3>1. Healthy Habits</h3>
+                <ul>
+                    <li><strong>Sleep:</strong> Get 7-9 hours to restore brain function.</li>
+                    <li><strong>Exercise:</strong> Even a walk or stretch can boost mood.</li>
+                    <li><strong>Nutrition:</strong> Choose whole foods like nuts, fruits, and greens to nourish your mind.</li>
+                </ul>
+            </div>
+            
+            <div class="content">
+                <h3>2. Mindfulness & Breathing</h3>
+                <p>
+                    Practicing mindfulness helps you stay grounded in the present. Try "box breathing": Inhale for 4 seconds, hold for 4, exhale for 4, hold again for 4.
+                </p>
+            </div>
+            
+            <div class="content">
+                <h3>3. Journaling & Reframing Thoughts</h3>
+                <p>
+                    Journaling helps you understand your emotions better. When negative thoughts arise, ask yourself: “Is this fact or fear?” Try replacing harsh self-talk with more supportive, realistic perspectives.
+                </p>
+            </div>
+            
+            <div class="content">
+                <h3>4. Limit Digital Overload</h3>
+                <ul>
+                    <li>Take regular breaks from social media.</li>
+                    <li>Use screen time tracking apps to manage your habits.</li>
+                    <li>Turn off notifications when studying or relaxing.</li>
+                </ul>
+            </div>
+            
+            <div class="content">
+                <h3>5. Build a Resilient Morning Routine</h3>
+                <p>
+                    Starting your day with calm, intentional habits builds momentum. Try journaling, drinking water, or stretching — even for 5 minutes.
+                </p>
+            </div>
+            
         </section>
 
         <!-- Page 3 -->
         <section class="page" id="page3">
-            <h2>The Power of Social Support and Communication</h2>
 
-            <h3>Why Support Matters</h3>
-            <p>
-                People with strong social support systems are less likely to suffer from depression and anxiety. Talking things out often gives you perspective, encouragement, and relief.
-            </p>
+            <div class="title content">
+                <h2>The Power of Social Support and Communication</h2>
+                <img width=100px src="Images/mental.png">
+            </div>
+            
+            <div class="content">
+                <h3>Why Support Matters</h3>
+                <p>
+                    People with strong social support systems are less likely to suffer from depression and anxiety. Talking things out often gives you perspective, encouragement, and relief.
+                </p>
+            </div>
+            
+            <div class="content">
+                <h3>What Healthy Support Looks Like</h3>
+                <ul>
+                    <li>Friends or family who listen without judging</li>
+                    <li>Mentors who can guide you through challenges</li>
+                    <li>Peers who validate your feelings and show empathy</li>
+                </ul>
+            </div>
 
-            <h3>What Healthy Support Looks Like</h3>
-            <ul>
-                <li>Friends or family who listen without judging</li>
-                <li>Mentors who can guide you through challenges</li>
-                <li>Peers who validate your feelings and show empathy</li>
-            </ul>
+            <div class="content">
+                <h3>Ways to Build Your Support Network</h3>
+                <ul>
+                    <li>Check in regularly with friends and loved ones</li>
+                    <li>Join clubs, group activities, or volunteering programs</li>
+                    <li>Talk to a counselor or support hotline if you're struggling</li>
+                </ul>
+            </div>
 
-            <h3>Ways to Build Your Support Network</h3>
-            <ul>
-                <li>Check in regularly with friends and loved ones</li>
-                <li>Join clubs, group activities, or volunteering programs</li>
-                <li>Talk to a counselor or support hotline if you're struggling</li>
-            </ul>
+            <div class="content">
+                <h3>Helping Others Helps You</h3>
+                <p>
+                    Being there for someone else can strengthen your own emotional resilience. Kindness, empathy, and connection build emotional strength in both directions.
+                </p>
+            </div>
 
-            <h3>Helping Others Helps You</h3>
-            <p>
-                Being there for someone else can strengthen your own emotional resilience. Kindness, empathy, and connection build emotional strength in both directions.
-            </p>
-
-            <h3>Don't Be Afraid to Ask for Help</h3>
-            <p>
-                Asking for help isn't a sign of weakness — it's a sign of courage and self-awareness. Therapists, teachers, friends, and even online communities can be valuable resources.
-            </p>
+            <div class="content">
+                <h3>Don't Be Afraid to Ask for Help</h3>
+                <p>
+                    Asking for help isn't a sign of weakness — it's a sign of courage and self-awareness. Therapists, teachers, friends, and even online communities can be valuable resources.
+                </p>
+            </div>
         </section>
     </main>
     <footer>

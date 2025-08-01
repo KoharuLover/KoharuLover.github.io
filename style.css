@@ -69,6 +69,7 @@ nav ul li {
 }
 
 button {
+  font-family: inherit;
   background: linear-gradient(135deg, #ffc4f6,#ffbadd );
   color: #003049;
   padding: 0.75rem 1.5rem;
@@ -83,6 +84,7 @@ button {
 }
 
 button:hover {
+  font-weight: bold;
   background: linear-gradient(135deg, #ff8cee,#ff8585);
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -92,6 +94,13 @@ button:active {
   transform: scale(0.98);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+
+.selected {
+    background: linear-gradient(135deg, #ff8cee,#ff8585);
+    font-weight: bold;
+}
+
 
 main {
   flex: 1 0 auto;
@@ -116,7 +125,33 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#content0btn {
+
+
+#c01btn, #c02btn, #c03btn {
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: left;
+  padding: 1rem;
+  background: #ffffff;
+  margin-bottom: 2rem;
+  max-width: 2000px;
+}
+
+
+#c01, #c02, #c03 {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+#c01.show, #c02.show, #c03.show {
+  display: block;
+  opacity: 1;
+}
+
+
+
+/* #content0btn {
   font-size: 1.5rem;
   font-weight: bold;
   padding: 1rem;
@@ -124,18 +159,16 @@ main {
   margin-bottom: 2rem;
   max-width: 2000px;
 }
-
 .sub {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   transition: max-height 0.5s ease, opacity 0.5s ease;
 }
-
 .sub.show {
-  max-height: 500px; /* big enough to fit content */
+  max-height: 500px; 
   opacity: 1;
-}
+} */
 
 footer {
   padding: 1rem;
