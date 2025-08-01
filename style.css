@@ -11,7 +11,7 @@ html, body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  background-color: linear-gradient(to right, #f9e4f1, #ffcbff, #feaaff);
+  background: linear-gradient(to right, #f9e4f1, #ffcbff, #feaaff);
   color: #003049;
 }
 
