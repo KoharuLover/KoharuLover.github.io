@@ -11,7 +11,7 @@ html, body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  background-color: #a8edea;
+  background: linear-gradient(to right, #f9e4f1, #ffcbff, #feaaff);
   color: #003049;
 }
 
@@ -23,15 +23,14 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 1.75rem;
+  font-size: 1.65rem;
   font-weight: bold;
   text-align: right;
-  text-shadow: 0 0 0.25rem #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #headerIMG{
-  height: 200px;
+  max-height: 175px;
   padding: 1rem;
 }
 
@@ -41,7 +40,6 @@ nav {
   padding: 0.5rem 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 nav ul {
   list-style: none;
   display: flex;
@@ -51,7 +49,6 @@ nav ul {
   margin: 0;
   padding: 0;
 }
-
 nav ul li {
   flex: 1 1 auto;
   text-align: center;
@@ -82,20 +79,16 @@ button {
   width: 100%;
   max-width: 320px;
 }
-
 button:hover {
   font-weight: bold;
   background: linear-gradient(135deg, #ff8cee,#ff8585);
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
-
 button:active {
   transform: scale(0.98);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-
-
 .selected {
     background: linear-gradient(135deg, #ff8cee,#ff8585);
     font-weight: bold;
@@ -125,18 +118,19 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-
-#c01btn, #c02btn, #c03btn {
-  font-size: 1.25rem;
-  font-weight: bold;
-  text-align: left;
-  padding: 1rem;
-  background: #ffffff;
-  margin-bottom: 2rem;
-  max-width: 2000px;
+.title {
+  display: flex;
+  align-items: center;        
+  justify-content: space-between; 
+  gap: 1rem;                  
 }
-
+.title h2{
+  flex: 1;
+}
+.title img{
+  max-width: 150px;
+  height: auto;
+}
 
 #c01, #c02, #c03 {
   display: none;
@@ -147,6 +141,29 @@ main {
 #c01.show, #c02.show, #c03.show {
   display: block;
   opacity: 1;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #ffffff;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  max-width: 2000px;
+  margin-bottom: 2rem;
+}
+
+.dropdown:hover {
+  background: #f7f7f7;
+}
+
+.dropdown img {
+  max-height: 24px; 
+  width: auto;
 }
 
 
