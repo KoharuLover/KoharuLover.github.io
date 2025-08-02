@@ -1,0 +1,350 @@
+@font-face {
+  font-family: 'Quicksand';
+  src: url('Fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
+}
+
+html, body {
+  font-family: 'Quicksand', Arial, sans-serif;
+  font-size: 16px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to right, #f9e4f1, #ffcbff, #feaaff);
+  color: #003049;
+}
+
+header {
+  max-width: 100%;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(to right, #f9e4f1, #ffcbff, #feaaff);
+  color: #003049;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.65rem;
+  font-weight: bold;
+  text-align: right;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#headerIMG{
+  max-height: 175px;
+  padding: 1rem;
+}
+
+nav {
+  background: linear-gradient(to right, #f9e4f1, #ffcbff, #feaaff);
+  max-width: 100%;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+nav ul li {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+#hamIcon {
+  display: none;
+  background: #ffffff;
+  color: #003049;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+button {
+  font-family: inherit;
+  background: linear-gradient(135deg, #ffc4f6,#ffbadd );
+  color: #003049;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 320px;
+}
+button:hover {
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff8cee,#ff8585);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+button:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.selected {
+    background: linear-gradient(135deg, #ff8cee,#ff8585);
+    font-weight: bold;
+}
+
+
+main {
+  flex: 1 0 auto;
+  padding: 2rem 4rem;
+  background-color: #fffcf7;
+  color: #003049;
+  line-height: 1.6;
+}
+
+.page {
+  display: none;
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+}
+
+.content {
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  background-color: #ffffff;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  display: flex;
+  align-items: center;        
+  justify-content: space-between; 
+  gap: 1rem;                  
+}
+.title h2{
+  flex: 1;
+}
+.title img{
+  max-width: 150px;
+  height: auto;
+}
+
+#c01, #c02, #c03 {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+#c01.show, #c02.show, #c03.show {
+  display: block;
+  opacity: 1;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #ffffff;
+  border: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+  max-width: 2000px;
+  margin-bottom: 2rem;
+}
+
+.dropdown:hover {
+  background: #f7f7f7;
+}
+
+.dropdown img {
+  max-height: 24px; 
+  width: auto;
+}
+
+#minigame {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to top, #fce3ec, #cfd9ff);
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+#gameUI{
+  display:none;
+}
+
+/* Start Button Overlay */
+#startOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(234, 244, 255, 0.9);
+  z-index: 200;
+}
+
+/* Start Button */
+#startBtn {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #003049;
+  background-color: #a6c1ee;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#startBtn:hover {
+  background-color: #90b4f0;
+}
+
+#score {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  z-index: 100;
+}
+
+#countdown {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  z-index: 100;
+}
+
+#endScreen {
+  position: absolute;
+  inset:0;
+  background:  rgba(234, 244, 255, 0.9);
+  font-size: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+
+  
+}
+
+
+.bubble {
+  position: absolute;
+  padding: 1rem;
+  height: 10vw;
+  width: 10vw;
+  text-align: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #a6c1ee;
+  cursor: pointer;
+  font-weight: bold;
+  color: #003049;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;               
+  align-items: center;         
+  justify-content: center;     
+  user-select: none;
+  transition: transform 0.1s, opacity 0.2s;
+  font-size: clamp(0.6rem, 2vw, 1.2rem); /* basically rwd, this helps to scale my font with a min and max size and a preferred size in just 1 line */
+}
+
+
+.bubble:active {
+  transform: scale(0.95);
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+  background: linear-gradient(to right, #f9e4f1, #ffcbff, #feaaff);
+  color: #003049;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-shadow: 0 0 0.25rem #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer img{
+  padding: 1rem;
+  max-width: 300px;
+}
+
+h1{
+  padding: 2rem;
+}
+
+@media screen and (max-width: 800px) {
+  nav ul {
+    flex-direction: column;
+    display: none;
+  }
+
+  nav ul.menuShow {
+    display: flex;
+  }
+
+  #hamIcon {
+    display: block;
+    margin: 1rem auto;
+  }
+
+  button {
+    width: 100%;
+    max-width: none;
+    font-size: 1rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  header {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  #headerIMG {
+    display: none;
+  }
+
+  footer img{
+    display: none;
+  }
+
+  #startBtn {
+    width: 60%;
+  }
+  #startBtn:hover {
+    background-color: #90b4f0;
+  }
+
+  #score {
+    font-size: 1.25rem;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+  }
+
+  #countdown {
+    font-size: 1.25rem;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+  }
+}
