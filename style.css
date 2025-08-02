@@ -282,6 +282,7 @@ footer {
 
 footer img{
   padding: 1rem;
+  max-width: 300px;
 }
 
 h1{

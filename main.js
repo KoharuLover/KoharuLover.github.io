@@ -93,6 +93,7 @@ c03btn.addEventListener("click", function() {
     c03btn.style.display = "none";
 });
 
+
 var gameArea = document.getElementById("minigame");
 
 const popAudio = new Audio("audio/popsound.mp3");
@@ -177,6 +178,7 @@ function createBubble() {
     }
   }
 
+  //smoother floating animation
   requestAnimationFrame(float);
 }
 
@@ -188,6 +190,7 @@ startBtn.addEventListener("click", function() {
 tryAgainBtn.addEventListener("click", function () {
     startGame();
 });
+
 
 function updateCountdown() {
     countdown -= 1;
@@ -235,6 +238,7 @@ function stopGame(gameEnd = false) {
         gameUI.style.display="none";
         gameRunning = false;
 
+        //check if to return to start screen or end screen
         if (gameEnd) {
             finalScore.textContent = "Your Score: " + score;
             endScreen.style.display = "flex";
@@ -245,47 +249,6 @@ function stopGame(gameEnd = false) {
         }
     }
 }
-
-
-// const content0btn = document.querySelector("#content0btn");
-// const allsub = document.querySelectorAll(".sub");
-//
-// // Make sure all .sub elements are hidden initially
-// allsub.forEach(function(sub) {
-//   sub.classList.remove("show");
-// });
-//
-// content0btn.addEventListener("click", function() {
-//   // Add the 'show' class to each .sub to trigger animation
-//   allsub.forEach(function(sub, index) {
-//     setTimeout(function() {sub.classList.add("show");}, index * 1000); // Delay each one slightly for a staggered effect
-//   });
-//
-//   content0btn.style.display = "none";
-// });
-
-
-// function hideAllSub() {
-//     for (let onesub of allsub) {
-//         onesub.style.display = "none";
-//     }
-// }
-// function showAllSub() {
-//     for (let onesub of allsub) {
-//         onesub.style.display = "block";
-//     }
-// }
-// // Hide all subcontent
-// hideAllSub();
-// // Show all subcontent
-// content0btn.addEventListener("click", function () {
-//     showAllSub();
-//     content0btn.style.display = "none"; // Optional: hide the button
-// });
-
-
-// Ball
-
 
 
 
