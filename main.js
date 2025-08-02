@@ -96,8 +96,8 @@ c03btn.addEventListener("click", function() {
 
 var gameArea = document.getElementById("minigame");
 
-const popAudio = new Audio("audio/popsound.mp3");
-const explodeAudio = new Audio("audio/explosion.mp3");
+const popAudio = new Audio("Audio/popsound.mp3");
+const explodeAudio = new Audio("Audio/explosion.mp3");
 
 var scoreDisplay = document.getElementById("score");
 var score = 0;
