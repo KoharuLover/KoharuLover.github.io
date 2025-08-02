@@ -34,14 +34,14 @@ function show(pgno){ //function to show selected page no
     let onenavbtn=document.querySelector("#page"+pgno+"btn");
     onenavbtn.classList.add("selected");
     
-    stopGame();
+    stopGame(false);
 }
 
 /*Listen for clicks on the buttons, assign anonymous
 eventhandler functions to call show function*/
 page0btn.addEventListener("click", function () {
     show(0);
-})
+});
 page1btn.addEventListener("click", function () {
     show(1);
 });
@@ -94,14 +94,24 @@ c03btn.addEventListener("click", function() {
 });
 
 var gameArea = document.getElementById("minigame");
+
 const popAudio = new Audio("audio/popsound.mp3");
 const explodeAudio = new Audio("audio/explosion.mp3");
+
 var scoreDisplay = document.getElementById("score");
 var score = 0;
 
 var startBtn = document.getElementById("startBtn");
 var gameUI = document.getElementById("gameUI");
 var startOverlay = document.getElementById("startOverlay");
+
+var countdownDisplay = document.getElementById("countdown");
+var endScreen = document.getElementById("endScreen");
+var finalScore = document.getElementById("finalScore");
+var tryAgainBtn = document.getElementById("tryAgainBtn");
+
+var countdown = 60;
+var countdownTimer = null;
 
 var bubbleInterval = null;
 
@@ -127,8 +137,8 @@ function createBubble() {
   bubble.className = "bubble";
 
   var isPositive = Math.random() < 0.6;
-  var text = isPositive
-    ? positiveThoughts[Math.floor(Math.random() *(positiveThoughts.length))]
+  var text = isPositive? 
+    positiveThoughts[Math.floor(Math.random() *(positiveThoughts.length))]
     : distractions[Math.floor(Math.random() * (distractions.length))];
 
   bubble.textContent = text;
@@ -173,39 +183,66 @@ function createBubble() {
 // Start the game
 startBtn.addEventListener("click", function() {
     startGame();
-})
+});
+
+tryAgainBtn.addEventListener("click", function () {
+    startGame();
+});
+
+function updateCountdown() {
+    countdown -= 1;
+    countdownDisplay.textContent = "Time Left: " + countdown + "s";
+
+    if (countdown <= 0) {
+        stopGame(true);
+    }
+}
 
 function startGame() {
     if(!gameRunning)
     {
         startOverlay.style.display="none";
         gameUI.style.display="block";
+        endScreen.style.display = "none";
+
         score = 0;
         scoreDisplay.textContent = "Score: 0";
+
+        countdown = 60;
+        countdownDisplay.textContent = "Time Left: 60s";
+
         bubbleInterval = setInterval(createBubble, 1000);
+        countdownTimer = setInterval(updateCountdown, 1000);
+
         gameRunning = true;
     }
 }
 
 
-function stopGame() {
+function stopGame(gameEnd = false) {
     if(gameRunning)
     {
         clearInterval(bubbleInterval);
+        clearInterval(countdownTimer);
         bubbleInterval = null;
+        countdownTimer = null;
 
         var bubbles = document.querySelectorAll(".bubble");
         bubbles.forEach(function (bubble) {
             bubble.remove();
         });
 
-        // Reset score
-        score = 0;
-        scoreDisplay.textContent = "Score: 0";
-
-        startOverlay.style.display="flex";
         gameUI.style.display="none";
         gameRunning = false;
+
+        if (gameEnd) {
+            finalScore.textContent = "Your Score: " + score;
+            endScreen.style.display = "flex";
+        } else {
+            startOverlay.style.display = "flex";
+            score = 0;
+            scoreDisplay.textContent = "Score: 0";
+        }
     }
 }
 

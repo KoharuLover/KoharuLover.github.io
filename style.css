@@ -203,7 +203,6 @@ main {
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 #startBtn:hover {
   background-color: #90b4f0;
 }
@@ -218,6 +217,31 @@ main {
   border-radius: 10px;
   z-index: 100;
 }
+
+#countdown {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  z-index: 100;
+}
+
+#endScreen {
+  position: absolute;
+  inset:0;
+  background:  rgba(234, 244, 255, 0.9);
+  font-size: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  display: none;
+
+  
+}
+
 
 .bubble {
   position: absolute;
@@ -254,6 +278,10 @@ footer {
   font-size: 0.9rem;
   text-shadow: 0 0 0.25rem #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer img{
+  padding: 1rem;
 }
 
 h1{
@@ -293,30 +321,29 @@ h1{
   #headerIMG {
     display: none;
   }
-}
 
-/* h2{background:cyan; padding: 2rem;}
-@media (max-width:800px){
-    #qrCodeImg{display:none;} 
-    h2{background: lightgreen;}
-    h2::after{content:"(mobile)";}
-} */
+  footer img{
+    display: none;
+  }
 
-/* #content0btn {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 1rem;
-  background: #ffffff;
-  margin-bottom: 2rem;
-  max-width: 2000px;
+  #startBtn {
+    width: 60%;
+  }
+  #startBtn:hover {
+    background-color: #90b4f0;
+  }
+
+  #score {
+    font-size: 1.25rem;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+  }
+
+  #countdown {
+    font-size: 1.25rem;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 0.25rem 0.5rem;
+    border-radius: 10px;
+  }
 }
-.sub {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
-}
-.sub.show {
-  max-height: 500px; 
-  opacity: 1;
-} */
