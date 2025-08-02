@@ -94,6 +94,8 @@ c03btn.addEventListener("click", function() {
 });
 
 var gameArea = document.getElementById("minigame");
+const popAudio = new Audio("audio/popsound.mp3");
+const explodeAudio = new Audio("audio/explosion.mp3");
 var scoreDisplay = document.getElementById("score");
 var score = 0;
 
@@ -142,9 +144,11 @@ function createBubble() {
   // Click behavior
   bubble.onclick = function () {
     if (isPositive) {
-      score += 1;
+        popAudio.play();
+        score += 1;
     } else {
-      score -= 1;
+        explodeAudio.play();
+        score -= 1;
     }
     scoreDisplay.textContent = "Score: " + score;
     bubble.remove();
